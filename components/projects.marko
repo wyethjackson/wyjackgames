@@ -1,0 +1,15 @@
+import CodeNames from "./code_names.marko";
+class {
+  onInput(input) {
+    this.state = {
+      code_names: input.code_names,
+      game_url: '#',
+      host_url: input.host_url,
+      hide_nav: input.hide_nav,
+    }
+  }
+}
+
+<div>
+  <${CodeNames} code_names=(state.code_names) host_url=(state.host_url) />
+</div>

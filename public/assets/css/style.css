@@ -1,0 +1,63 @@
+.col {
+  height: 50px;
+  width: 50px;
+}
+
+.row-card {
+  height: 115px;
+}
+
+.bg-tan {
+  background-color: #BCA794;
+}
+
+.btn-toggle-primary {
+  color: #277FEC;
+  background: rgba(189, 216, 248, 0.4);
+}
+
+.btn-nav {
+  background-color: #f8f9fa;
+  color: #212529;
+  border-color: #6c757d!important;
+  border: 1px solid
+
+}
+
+.btn-nav:hover {
+  color: #277FEC;
+  background: rgba(189, 216, 248, 0.4);
+  weight: bold;
+}
+
+.btn-toggle-primary:hover {
+  color: #277FEC;
+  background: rgba(189, 216, 248, 0.4);
+}
+
+.btn-toggle {
+ width: 120px;
+}
+
+.header {
+  display: flex;
+  height: 50px;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.header-col {
+  flex-basis: 0;
+flex-grow: 1;
+height: 50px;
+max-width: 100%;
+position: relative;
+width: 100%;
+padding-right: 15px;
+padding-left: 15px;
+}
+
+.fixed-bottom {
+  height: 70px;
+}
