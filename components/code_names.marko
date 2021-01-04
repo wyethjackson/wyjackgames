@@ -228,10 +228,12 @@ class {
       </div>
     </div>
   </div>
-  <div class="header fixed-top my-2 mx-3">
-    <div class="col-3">
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-light border border-secondary border-top-0 border-left-0 border-right-0">
+    <div class="collapse navbar-collapse" id="my-nav">
+      <ul class="navbar-nav mr-auto">
+          <li class=`nav-item`>
       <if(!state.winner && !!state.code_name_id)>
-        <div class="float-left btn-group">
+        <div class="float-left btn-group p-2">
           <button class=`btn btn-toggle ${state.active_toggle === 'field_operative' ? 'btn-toggle-primary font-weight-bold border-primary' : 'btn-light border-left border-top border-bottom border-secondary'}` type="button" id="field_operative" onClick("handleClick", false)>
             Operative
           </button>
@@ -240,16 +242,37 @@ class {
           </button>
         </div>
       </if>
-    </div>
+    </li>
     <if(state.turn && state.team_blue && !state.winner)>
-      <div class="col-4">
+    <li class="nav-item m-2">
         <h3 class="float-left"> <span class=`badge badge-light border mr-2 py-2 border-${state.turn === 'RED' ? 'danger' : 'primary'} ${state.turn === state.team_blue.team_name ? state.team_blue.text_color : state.team_red.text_color}`>${state.turn}</span></h3>
         <if(state.clue && state.guess_text && !state.spy_master && state.show_spy_master_info)>
           <button class="btn btn-nav border-primary font-weight-bold btn-sm ml-2 py-2" onClick('changeTurns', null, (state.guesses > 0 && state.has_guessed_all_clues ? false : null))>End Turn</button>
         </if>
-      </div>
+      </li>
     </if>
-    <div class="col-5">
+
+            <li class=`nav-item my-2`>
+              <div class="input-group">
+                <input type="text" placeholder="Code" value=`${state.game_code_given}`
+                  on-input('updateGameCode')
+                />
+                <div class="input-group-append">
+                  <if(!!state.game_code_given)>
+                    <a class="btn btn-nav border-primary font-weight-bold" type="button" id="button-addon2" href=`/code_names/${state.game_code_given.toUpperCase()}`>Join</a>
+                  </if>
+                  <else>
+                    <a class="btn btn-nav border-primary font-weight-bold" type="button" id="button-addon2" href='#'>Join</a>
+                  </else>
+                </div>
+              </div>
+            </li>
+            <li class=`nav-item m-2`>
+              <form class="float-right" action="/code_names/new" method="POST">
+                <button class="btn btn-nav border-primary font-weight-bold">New Game</button>
+              </form>
+            </li>
+    <!-- <div class="col-5">
       <div class="row">
         <div class="col-sm-8 float-left pr-0">
           <div class="input-group">
@@ -258,7 +281,7 @@ class {
             />
             <div class="input-group-append">
               <if(!!state.game_code_given)>
-                <a class="btn btn-nav border-primary font-weight-bold" type="button" id="button-addon2" href=`/projects/code_names/${state.game_code_given.toUpperCase()}`>Join</a>
+                <a class="btn btn-nav border-primary font-weight-bold" type="button" id="button-addon2" href=`/code_names/${state.game_code_given.toUpperCase()}`>Join</a>
               </if>
               <else>
                 <a class="btn btn-nav border-primary font-weight-bold" type="button" id="button-addon2" href='#'>Join</a>
@@ -267,13 +290,13 @@ class {
           </div>
         </div>
         <div class="col-sm-4 justify-content-end pr-1">
-          <form class="float-right" action="/projects/code_names/new" method="POST">
-            <button class="btn btn-nav border-primary font-weight-bold">New Game</button>
-          </form>
+
         </div>
       </div>
-    </div>
-  </div>
+    </div> -->
+  </ul>
+</div>
+</nav>
   <if(!state.toast.is_hidden)>
     <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header">
@@ -294,7 +317,7 @@ class {
           <for(row in state.rows)>
             <div class="row my-2 row-card">
               <for(col in row)>
-                <button class=`btn bg-${col.color} ${col.text_color} col h-100 border border-dark rounded m-1`>
+                <button class=`btn bg-${col.color} ${col.text_color} col border border-dark rounded py-4 mx-1`>
                   <span class=`h3 align-middle font-weight-bold ${col.text_color} text-center`>
                     ${col.word}
                     <if(!col.is_hidden)>
@@ -316,12 +339,12 @@ class {
               <for|col, colIndex| of=row>
                 <if(col.is_hidden)>
                   <if(!!state.clue && !Number.isNaN(state.max_guesses))>
-                    <button class=`btn btn-light col h-100 border border-dark rounded py-4 m-1` onClick('handleGuessCard', col.word, rowIndex, colIndex)>
+                    <button class=`btn btn-light col h-100 border border-dark rounded py-4 mx-1` onClick('handleGuessCard', col.word, rowIndex, colIndex)>
                       <span class=`h3 align-middle m-1 font-weight-bold py-2 text-center text-dark`>${col.word}</span>
                     </button>
                   </if>
                   <else>
-                    <button class=" btn btn-light col h-100 border border-dark rounded m-1" data-toggle="modal" data-target="#spymasterThinking">
+                    <button class=" btn btn-light col h-100 border border-dark rounded py-4 mx-1" data-toggle="modal" data-target="#spymasterThinking">
                       <span class=`h3 align-middle font-weight-bold text-dark btn-code text-center`>
                         ${col.word}
                       </span>
@@ -329,7 +352,7 @@ class {
                   </else>
                 </if>
                 <else>
-                  <button class=`btn bg-${col.color} col h-100 border border-dark rounded m-1` data-toggle="modal" data-target="#alreadyGuessed">
+                  <button class=`btn bg-${col.color} col h-100 border border-dark rounded py-4 mx-1` data-toggle="modal" data-target="#alreadyGuessed">
                     <span class=`h3 align-middle font-weight-bold ${col.text_color} text-center`>
                       ${col.word}
                     </span>

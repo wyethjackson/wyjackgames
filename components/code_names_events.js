@@ -15,14 +15,14 @@ class CodeNamesEvents extends EventEmitter {
   }
 
   fetch() {
-    return wretch(`${this.host_url}/projects/code_names/${this.code_name_id}/ajax`)
+    return wretch(`${this.host_url}/code_names/${this.code_name_id}/ajax`)
       .get()
       .json((body) => body)
       .catch(error => { console.log("ERROR>>> ", error) })
   }
 
   updateGuessCard({word, guesses, turn, winner}) {
-    wretch(`${this.host_url}/projects/code_names/${this.code_name_id}/ajax`)
+    wretch(`${this.host_url}/code_names/${this.code_name_id}/ajax`)
       .post({
         word,
         guesses,
@@ -34,14 +34,14 @@ class CodeNamesEvents extends EventEmitter {
   }
 
   updateTurn({turn, word, has_guessed_all_clues}) {
-    wretch(`${this.host_url}/projects/code_names/${this.code_name_id}/ajax`)
+    wretch(`${this.host_url}/code_names/${this.code_name_id}/ajax`)
       .post({turn, word, has_guessed_all_clues})
       .res(response => response)
       .catch(error => { console.log("ERROR>>> ", error) })
   }
 
   updateGiveGuess({clue, guess_given, guess_text}) {
-    wretch(`${this.host_url}/projects/code_names/${this.code_name_id}/ajax`)
+    wretch(`${this.host_url}/code_names/${this.code_name_id}/ajax`)
       .post({clue, guess_given, guess_text})
       .res(response => response)
       .catch(error => { console.log("ERROR>>> ", error) })

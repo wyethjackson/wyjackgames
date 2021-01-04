@@ -7,7 +7,7 @@ const contact = require('../components/contact.marko');
 const index = require("../index.marko");
 
 router.get('/', async function (req, res) {
-  res.marko(index, {path: '../', page_id: 'CONTACT', active_index: 3});
+  res.marko(index, {path: '../', page_id: 'CONTACT', active_page: 'contact'});
 });
 
 module.exports = router;

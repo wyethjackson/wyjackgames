@@ -7,38 +7,28 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
           input = input.body_data;
 
           this.state = {
-              active_index: input.active_index || 0,
-              pages: [
-                  {
-                      page: Profile,
-                      name: "Profile"
+              active_page: input.active_page || "",
+              pages: {
+                  home: {
+                      page: Home,
+                      name: "Home",
+                      url: "/"
                     },
-                  {
-                      page: Projects,
-                      name: "Projects",
-                      hide_nav: true,
-                      host_url: input.host_url
+                  code_names: {
+                      page: CodeNames,
+                      name: "Code Names",
+                      url: "/code_names"
                     },
-                  {
-                      page: Blog,
-                      name: "Blog"
-                    },
-                  {
+                  contact: {
                       page: Contact,
-                      name: "Contact"
-                    },
-                  {
-                      page: Users,
-                      name: "" + (input.user ? "" + input.user.name : "Sign In"),
-                      active_index: input.users_active_index || 0
+                      name: "Contact",
+                      url: "/contact"
                     }
-                ],
+                },
               active_classes: [
                   "active"
                 ],
-              nav_title: "Wyeth Jackson",
-              user: input.user,
-              posts: input.posts,
+              nav_title: "WyJackGames",
               alarms: input.alarms,
               path: input.path,
               code_names: input.code_names,
@@ -59,14 +49,13 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
     marko_renderer = components_helpers.r,
     marko_defineComponent = components_helpers.c,
     marko_loadTemplate = require("marko/src/runtime/helper-loadTemplate"),
-    Profile = marko_loadTemplate(require.resolve("./components/profile.marko")),
-    Projects = marko_loadTemplate(require.resolve("./components/projects.marko")),
-    Blog = marko_loadTemplate(require.resolve("./components/blog.marko")),
+    CodeNames = marko_loadTemplate(require.resolve("./components/code_names.marko")),
     Contact = marko_loadTemplate(require.resolve("./components/contact.marko")),
-    Users = marko_loadTemplate(require.resolve("./components/users.marko")),
+    Home = marko_loadTemplate(require.resolve("./components/home.marko")),
     marko_helpers = require("marko/src/runtime/html/helpers"),
     marko_escapeXml = marko_helpers.x,
     marko_forEachProp = require("marko/src/runtime/helper-forEachProperty"),
+    marko_attr = marko_helpers.a,
     marko_classAttr = marko_helpers.ca,
     marko_forEach = marko_helpers.f,
     marko_dynamicTag = marko_helpers.d;
@@ -81,13 +70,15 @@ function render(input, out, __component, component, state) {
 
     var for__6 = 0;
 
-    marko_forEachProp(state.pages, function(index, item) {
+    marko_forEachProp(Object.values(state.pages), function(index, item) {
       var keyscope__7 = "[" + ((for__6++) + "]");
 
       out.w("<li" +
         marko_classAttr("nav-item " + (state.active_index === index ? state.active_classes.join("") : "")) +
-        "><a class=\"nav-link\" href=\"#\">" +
-        marko_escapeXml(state.pages[index].name) +
+        "><a class=\"nav-link\"" +
+        marko_attr("href", "" + item.url) +
+        ">" +
+        marko_escapeXml(item.name) +
         "</a></li>");
     });
 
@@ -110,13 +101,10 @@ function render(input, out, __component, component, state) {
 
   out.w("</div>");
 
-  if (state.pages[state.active_index]) {
-    marko_dynamicTag(out, state.pages[state.active_index].page, {
+  if (state.active_page) {
+    marko_dynamicTag(out, state.pages[state.active_page].page, {
         path: state.path,
         hide_nav: state.hide_nav,
-        sub_active_index: state.pages[state.active_index].active_index,
-        posts: state.posts,
-        user: state.user,
         code_names: state.code_names,
         host_url: state.host_url
       }, null, null, __component, "15");
@@ -135,10 +123,8 @@ marko_template.meta = {
     id: "/undefined$0/body.marko",
     component: "./body.marko",
     tags: [
-      "./components/profile.marko",
-      "./components/projects.marko",
-      "./components/blog.marko",
+      "./components/code_names.marko",
       "./components/contact.marko",
-      "./components/users.marko"
+      "./components/home.marko"
     ]
   };
