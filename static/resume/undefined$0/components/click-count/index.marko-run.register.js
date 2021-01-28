@@ -1,1 +1,0 @@
-$_mod.run("/undefined$0/components/click-count/index.marko.register");
