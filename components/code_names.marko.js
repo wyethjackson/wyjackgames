@@ -200,60 +200,78 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
     module_CodeNamesEvents = require("./code_names_events"),
     CodeNamesEvents = module_CodeNamesEvents.default || module_CodeNamesEvents,
     marko_helpers = require("marko/src/runtime/html/helpers"),
+    marko_attr = marko_helpers.a,
     marko_classAttr = marko_helpers.ca,
     marko_escapeXml = marko_helpers.x,
-    marko_attr = marko_helpers.a,
     marko_forEach = marko_helpers.f,
     marko_styleAttr = marko_helpers.sa;
 
 function render(input, out, __component, component, state) {
   var data = input;
 
-  out.w("<div><div class=\"modal fade\" id=\"spymasterThinking\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"spymasterThinkingLabel\" aria-hidden=\"true\"><div class=\"modal-dialog\"><div class=\"modal-content\"><div class=\"modal-header\"><h5 class=\"modal-title\" id=\"spymasterThinkingLabel\">Hold Up</h5></div><div class=\"modal-body\">SpyMaster is still thinking!</div><div class=\"modal-footer\" data-dismiss=\"modal\"><button type=\"button\" class=\"btn btn-primary\">Fine.</button></div></div></div></div><div class=\"modal fade\" id=\"alreadyGuessed\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"alreadyGuessedLabel\" aria-hidden=\"true\"><div class=\"modal-dialog\"><div class=\"modal-content\"><div class=\"modal-header\"><h5 class=\"modal-title\" id=\"alreadyGuessedLabel\">Hold Up</h5></div><div class=\"modal-body\">This word was already guessed!</div><div class=\"modal-footer\" data-dismiss=\"modal\"><button type=\"button\" class=\"btn btn-primary\">That doesn't help me.</button></div></div></div></div><nav class=\"navbar navbar-expand-lg navbar-light sticky-top bg-light border border-secondary border-top-0 border-left-0 border-right-0\"><div class=\"collapse navbar-collapse\" id=\"my-nav\"><ul class=\"navbar-nav mr-auto\"><li" +
-    marko_classAttr("nav-item") +
-    ">");
+  out.w("<div><div class=\"modal fade\" id=\"spymasterThinking\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"spymasterThinkingLabel\" aria-hidden=\"true\"><div class=\"modal-dialog\"><div class=\"modal-content\"><div class=\"modal-header\"><h5 class=\"modal-title\" id=\"spymasterThinkingLabel\">Hold Up</h5></div><div class=\"modal-body\">SpyMaster is still thinking!</div><div class=\"modal-footer\" data-dismiss=\"modal\"><button type=\"button\" class=\"btn btn-primary\">Fine.</button></div></div></div></div><div class=\"modal fade\" id=\"alreadyGuessed\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"alreadyGuessedLabel\" aria-hidden=\"true\"><div class=\"modal-dialog\"><div class=\"modal-content\"><div class=\"modal-header\"><h5 class=\"modal-title\" id=\"alreadyGuessedLabel\">Hold Up</h5></div><div class=\"modal-body\">This word was already guessed!</div><div class=\"modal-footer\" data-dismiss=\"modal\"><button type=\"button\" class=\"btn btn-primary\">That doesn't help me.</button></div></div></div></div>");
 
-  if (!state.winner && !!state.code_name_id) {
-    out.w("<div class=\"float-left btn-group p-2\"><button" +
-      marko_classAttr("btn btn-toggle " + (state.active_toggle === "field_operative" ? "btn-toggle-primary font-weight-bold border-primary" : "btn-light border-left border-top border-bottom border-secondary")) +
-      " type=\"button\" id=\"field_operative\">Operative</button><button" +
-      marko_classAttr("btn btn-toggle " + (state.active_toggle === "spymaster" ? "btn-toggle-primary font-weight-bold border-primary" : "btn-light border-right border-top border-bottom border-secondary")) +
-      " type=\"button\" id=\"spymaster\">Spy Master</button></div>");
-  }
+  if (!state.winner && !state.code_name_id) {
+    out.w("<div class=\"card d-flex justify-content-center\"><div class=\"card-body\"><h5 class=\"card-title mx-1\">Play Code Names</h5><div class=\"input-group mx-1 my-2\"><input type=\"text\" placeholder=\"Code\"" +
+      marko_attr("value", "" + state.game_code_given) +
+      "><div class=\"input-group-append\">");
 
-  out.w("</li>");
+    if (!!state.game_code_given) {
+      out.w("<a class=\"btn btn-nav border-primary font-weight-bold\" type=\"button\" id=\"button-addon2\"" +
+        marko_attr("href", "/code_names/" + state.game_code_given.toUpperCase()) +
+        ">Join</a>");
+    } else {
+      out.w("<a class=\"btn btn-nav border-primary font-weight-bold\" type=\"button\" id=\"button-addon2\" href=\"#\">Join</a>");
+    }
 
-  if ((state.turn && state.team_blue) && !state.winner) {
-    out.w("<li class=\"nav-item m-2\"><h3 class=\"float-left\"> <span" +
-      marko_classAttr((("badge badge-light border mr-2 py-2 border-" + (state.turn === "RED" ? "danger" : "primary")) + " ") + (state.turn === state.team_blue.team_name ? state.team_blue.text_color : state.team_red.text_color)) +
-      ">" +
-      marko_escapeXml(state.turn) +
-      "</span></h3>");
+    out.w("</div></div><div class=\"input-group mx-1 my-2\"><form class=\"float-right\" action=\"/code_names/new\" method=\"POST\"><button class=\"btn btn-nav border-primary font-weight-bold\">New Game</button></form></div></div></div>");
+  } else {
+    out.w("<nav class=\"navbar navbar-expand-lg navbar-light sticky-top bg-light border border-secondary border-top-0 border-left-0 border-right-0\"><div class=\"collapse navbar-collapse\" id=\"my-nav\"><a class=\"navbar-brand\" href=\"/\">WyJackGames</a><ul class=\"navbar-nav mr-auto\"><li" +
+      marko_classAttr("nav-item") +
+      ">");
 
-    if (((state.clue && state.guess_text) && !state.spy_master) && state.show_spy_master_info) {
-      out.w("<button class=\"btn btn-nav border-primary font-weight-bold btn-sm ml-2 py-2\">End Turn</button>");
+    if (!state.winner && !!state.code_name_id) {
+      out.w("<div class=\"float-left btn-group p-2\"><button" +
+        marko_classAttr("btn btn-toggle " + (state.active_toggle === "field_operative" ? "btn-toggle-primary font-weight-bold border-primary" : "btn-light border-left border-top border-bottom border-secondary")) +
+        " type=\"button\" id=\"field_operative\">Operative</button><button" +
+        marko_classAttr("btn btn-toggle " + (state.active_toggle === "spymaster" ? "btn-toggle-primary font-weight-bold border-primary" : "btn-light border-right border-top border-bottom border-secondary")) +
+        " type=\"button\" id=\"spymaster\">Spy Master</button></div>");
     }
 
     out.w("</li>");
+
+    if ((state.turn && state.team_blue) && !state.winner) {
+      out.w("<li class=\"nav-item m-2\"><h3 class=\"float-left\"> <span" +
+        marko_classAttr((("badge badge-light border mr-2 py-2 border-" + (state.turn === "RED" ? "danger" : "primary")) + " ") + (state.turn === state.team_blue.team_name ? state.team_blue.text_color : state.team_red.text_color)) +
+        ">" +
+        marko_escapeXml(state.turn) +
+        "</span></h3>");
+
+      if (((state.clue && state.guess_text) && !state.spy_master) && state.show_spy_master_info) {
+        out.w("<button class=\"btn btn-nav border-primary font-weight-bold btn-sm ml-2 py-2\">End Turn</button>");
+      }
+
+      out.w("</li>");
+    }
+
+    out.w("<li" +
+      marko_classAttr("nav-item my-2") +
+      "><div class=\"input-group\"><input type=\"text\" placeholder=\"Code\"" +
+      marko_attr("value", "" + state.game_code_given) +
+      "><div class=\"input-group-append\">");
+
+    if (!!state.game_code_given) {
+      out.w("<a class=\"btn btn-nav border-primary font-weight-bold\" type=\"button\" id=\"button-addon2\"" +
+        marko_attr("href", "/code_names/" + state.game_code_given.toUpperCase()) +
+        ">Join</a>");
+    } else {
+      out.w("<a class=\"btn btn-nav border-primary font-weight-bold\" type=\"button\" id=\"button-addon2\" href=\"#\">Join</a>");
+    }
+
+    out.w("</div></div></li><li" +
+      marko_classAttr("nav-item m-2") +
+      "><form class=\"float-right\" action=\"/code_names/new\" method=\"POST\"><button class=\"btn btn-nav border-primary font-weight-bold\">New Game</button></form></li></ul></div></nav>");
   }
-
-  out.w("<li" +
-    marko_classAttr("nav-item my-2") +
-    "><div class=\"input-group\"><input type=\"text\" placeholder=\"Code\"" +
-    marko_attr("value", "" + state.game_code_given) +
-    "><div class=\"input-group-append\">");
-
-  if (!!state.game_code_given) {
-    out.w("<a class=\"btn btn-nav border-primary font-weight-bold\" type=\"button\" id=\"button-addon2\"" +
-      marko_attr("href", "/code_names/" + state.game_code_given.toUpperCase()) +
-      ">Join</a>");
-  } else {
-    out.w("<a class=\"btn btn-nav border-primary font-weight-bold\" type=\"button\" id=\"button-addon2\" href=\"#\">Join</a>");
-  }
-
-  out.w("</div></div></li><li" +
-    marko_classAttr("nav-item m-2") +
-    "><form class=\"float-right\" action=\"/code_names/new\" method=\"POST\"><button class=\"btn btn-nav border-primary font-weight-bold\">New Game</button></form></li></ul></div></nav>");
 
   if (!state.toast.is_hidden) {
     out.w("<div class=\"toast\" role=\"alert\" aria-live=\"assertive\" aria-atomic=\"true\"><div class=\"toast-header\"><strong class=\"mr-auto\">" +
@@ -264,21 +282,21 @@ function render(input, out, __component, component, state) {
   }
 
   if (!!state.turn && !!state.team_blue) {
-    out.w("<div class=\"mt-4 position-static\">");
+    out.w("<div class=\"mt-4 position-static px-4\">");
 
     if (!state.winner && state.turn) {
       if (state.spy_master) {
-        var for__44 = 0;
+        var for__56 = 0;
 
         marko_forEach(state.rows, function(row) {
-          var keyscope__45 = "[" + ((for__44++) + "]");
+          var keyscope__57 = "[" + ((for__56++) + "]");
 
           out.w("<div class=\"row my-2 row-card\">");
 
-          var for__47 = 0;
+          var for__59 = 0;
 
           marko_forEach(row, function(col) {
-            var keyscope__48 = "[" + (((for__47++) + keyscope__45) + "]");
+            var keyscope__60 = "[" + (((for__59++) + keyscope__57) + "]");
 
             out.w("<button" +
               marko_classAttr(((("btn bg-" + col.color) + " ") + col.text_color) + " col border border-dark rounded py-4 mx-1") +
@@ -299,17 +317,17 @@ function render(input, out, __component, component, state) {
           out.w("</div>");
         });
       } else {
-        var for__54 = 0;
+        var for__66 = 0;
 
         marko_forEach(state.rows, function(row, rowIndex) {
-          var keyscope__55 = "[" + ((for__54++) + "]");
+          var keyscope__67 = "[" + ((for__66++) + "]");
 
           out.w("<div class=\"row my-2 row-card\">");
 
-          var for__57 = 0;
+          var for__69 = 0;
 
           marko_forEach(row, function(col, colIndex) {
-            var keyscope__58 = "[" + (((for__57++) + keyscope__55) + "]");
+            var keyscope__70 = "[" + (((for__69++) + keyscope__67) + "]");
 
             if (col.is_hidden) {
               if (!!state.clue && !Number.isNaN(state.max_guesses)) {
@@ -374,10 +392,10 @@ function render(input, out, __component, component, state) {
               marko_attr("value", "" + (state.clue_state || "")) +
               "><div class=\"input-group-append\"><button class=\"btn btn-outline-secondary dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">For</button><div class=\"dropdown-menu\">");
 
-            var for__85 = 0;
+            var for__97 = 0;
 
             marko_forEach(state.turn === state.team_blue.team_name ? state.team_blue.words : state.team_red.words, function(word, wordIndex) {
-              var keyscope__86 = "[" + ((for__85++) + "]");
+              var keyscope__98 = "[" + ((for__97++) + "]");
 
               out.w("<div class=\"dropdown-item\">" +
                 marko_escapeXml(wordIndex) +
@@ -413,17 +431,17 @@ function render(input, out, __component, component, state) {
       if (state.game_over_active_toggle === "spymaster") {
         out.w("<div class=\"mt-4 position-static\">");
 
-        var for__102 = 0;
+        var for__114 = 0;
 
         marko_forEach(state.rows, function(row) {
-          var keyscope__103 = "[" + ((for__102++) + "]");
+          var keyscope__115 = "[" + ((for__114++) + "]");
 
           out.w("<div class=\"row my-2 row-card\">");
 
-          var for__105 = 0;
+          var for__117 = 0;
 
           marko_forEach(row, function(col) {
-            var keyscope__106 = "[" + (((for__105++) + keyscope__103) + "]");
+            var keyscope__118 = "[" + (((for__117++) + keyscope__115) + "]");
 
             out.w("<div" +
               marko_classAttr(("bg-" + col.color) + " col h-100 border border-dark rounded py-4 m-1") +

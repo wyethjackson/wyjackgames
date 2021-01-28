@@ -208,7 +208,7 @@ var marko_template = module.exports = require('/marko$4.16.1/src/vdom'/*"marko/s
     marko_styleAttr = require('/marko$4.16.1/src/runtime/vdom/helper-styleAttr'/*"marko/src/runtime/vdom/helper-styleAttr"*/),
     marko_createElement = marko_helpers.e,
     marko_const = marko_helpers.const,
-    marko_const_nextId = marko_const("3b0203"),
+    marko_const_nextId = marko_const("d94d49"),
     marko_node0 = marko_createElement("DIV", {
         "class": "modal fade",
         id: "spymasterThinking",
@@ -284,30 +284,26 @@ var marko_template = module.exports = require('/marko$4.16.1/src/vdom'/*"marko/s
               }, null, null, 1)
               .t("That doesn't help me."),
     marko_attrs0 = {
-        "class": "navbar navbar-expand-lg navbar-light sticky-top bg-light border border-secondary border-top-0 border-left-0 border-right-0"
+        "class": "card d-flex justify-content-center"
       },
     marko_attrs1 = {
-        "class": "collapse navbar-collapse",
-        id: "my-nav"
+        "class": "card-body"
       },
+    marko_node2 = marko_createElement("H5", {
+        "class": "card-title mx-1"
+      }, "19", null, 1, 0, {
+        i: marko_const_nextId()
+      })
+      .t("Play Code Names"),
     marko_attrs2 = {
-        "class": "navbar-nav mr-auto"
+        "class": "input-group mx-1 my-2"
       },
     marko_attrs3 = {
-        "class": "nav-item"
-      },
-    marko_attrs4 = {
-        "class": "nav-item my-2"
-      },
-    marko_attrs5 = {
-        "class": "input-group"
-      },
-    marko_attrs6 = {
         "class": "input-group-append"
       },
-    marko_node2 = marko_createElement("LI", {
-        "class": "nav-item m-2"
-      }, "34", null, 1, 0, {
+    marko_node3 = marko_createElement("DIV", {
+        "class": "input-group mx-1 my-2"
+      }, "25", null, 1, 0, {
         i: marko_const_nextId()
       })
       .e("FORM", {
@@ -319,61 +315,113 @@ var marko_template = module.exports = require('/marko$4.16.1/src/vdom'/*"marko/s
             "class": "btn btn-nav border-primary font-weight-bold"
           }, null, null, 1)
           .t("New Game"),
-    marko_attrs7 = {
-        "class": "float-left btn-group p-2"
-      },
-    marko_attrs8 = {
-        "class": "nav-item m-2"
-      },
-    marko_attrs9 = {
-        "class": "float-left"
-      },
-    marko_attrs10 = {
-        "class": "btn btn-nav border-primary font-weight-bold btn-sm ml-2 py-2"
-      },
-    marko_node3 = marko_createElement("A", {
+    marko_node4 = marko_createElement("A", {
         "class": "btn btn-nav border-primary font-weight-bold",
         type: "button",
         id: "button-addon2",
         href: "#"
-      }, "33", null, 1, 0, {
+      }, "24", null, 1, 0, {
         i: marko_const_nextId()
       })
       .t("Join"),
+    marko_attrs4 = {
+        "class": "navbar navbar-expand-lg navbar-light sticky-top bg-light border border-secondary border-top-0 border-left-0 border-right-0"
+      },
+    marko_attrs5 = {
+        "class": "collapse navbar-collapse",
+        id: "my-nav"
+      },
+    marko_node5 = marko_createElement("A", {
+        "class": "navbar-brand",
+        href: "/"
+      }, "30", null, 1, 0, {
+        i: marko_const_nextId()
+      })
+      .t("WyJackGames"),
+    marko_attrs6 = {
+        "class": "navbar-nav mr-auto"
+      },
+    marko_attrs7 = {
+        "class": "nav-item"
+      },
+    marko_attrs8 = {
+        "class": "nav-item my-2"
+      },
+    marko_attrs9 = {
+        "class": "input-group"
+      },
+    marko_attrs10 = {
+        "class": "input-group-append"
+      },
+    marko_node6 = marko_createElement("LI", {
+        "class": "nav-item m-2"
+      }, "46", null, 1, 0, {
+        i: marko_const_nextId()
+      })
+      .e("FORM", {
+          "class": "float-right",
+          action: "/code_names/new",
+          method: "POST"
+        }, null, null, 1)
+        .e("BUTTON", {
+            "class": "btn btn-nav border-primary font-weight-bold"
+          }, null, null, 1)
+          .t("New Game"),
     marko_attrs11 = {
+        "class": "float-left btn-group p-2"
+      },
+    marko_attrs12 = {
+        "class": "nav-item m-2"
+      },
+    marko_attrs13 = {
+        "class": "float-left"
+      },
+    marko_attrs14 = {
+        "class": "btn btn-nav border-primary font-weight-bold btn-sm ml-2 py-2"
+      },
+    marko_node7 = marko_createElement("A", {
+        "class": "btn btn-nav border-primary font-weight-bold",
+        type: "button",
+        id: "button-addon2",
+        href: "#"
+      }, "45", null, 1, 0, {
+        i: marko_const_nextId()
+      })
+      .t("Join"),
+    marko_attrs15 = {
         "class": "toast",
         role: "alert",
         "aria-live": "assertive",
         "aria-atomic": "true"
       },
-    marko_attrs12 = {
+    marko_attrs16 = {
         "class": "toast-header"
       },
-    marko_attrs13 = {
+    marko_attrs17 = {
         "class": "toast-body"
       },
-    marko_attrs14 = {
+    marko_attrs18 = {
         "class": "mr-auto"
       },
-    marko_node4 = marko_createElement("BUTTON", {
+    marko_node8 = marko_createElement("BUTTON", {
         type: "button",
         "class": "ml-2 mb-1 close",
         "data-dismiss": "toast",
         "aria-label": "Close"
-      }, "40", null, 1, 0, {
+      }, "52", null, 1, 0, {
         i: marko_const_nextId()
       })
       .e("SPAN", {
           "aria-hidden": "true"
         }, null, null, 1)
         .t("×"),
-    marko_attrs15 = {
-        "class": "mt-4 position-static"
+    marko_attrs19 = {
+        "class": "mt-4 position-static px-4"
       },
-    marko_attrs16 = {
+    marko_attrs20 = {
         "class": "row my-2 row-card"
       },
-    marko_attrs17 = {
+    marko_attrs21 = {
         "class": "bi bi-person-check mb-1",
         width: "1.5em",
         height: "1.5em",
@@ -381,133 +429,133 @@ var marko_template = module.exports = require('/marko$4.16.1/src/vdom'/*"marko/s
         fill: "currentColor",
         xmlns: "http://www.w3.org/2000/svg"
       },
-    marko_attrs18 = {
+    marko_attrs22 = {
         "fill-rule": "evenodd",
         d: "M11 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM1.022 13h9.956a.274.274 0 0 0 .014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 0 0 .022.004zm9.974.056v-.002.002zM6 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm6.854.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"
       },
-    marko_attrs19 = {
+    marko_attrs23 = {
         "class": "row my-2 row-card"
       },
-    marko_attrs20 = {
+    marko_attrs24 = {
         "class": "btn btn-light col h-100 border border-dark rounded py-4 mx-1"
       },
-    marko_attrs21 = {
+    marko_attrs25 = {
         "class": "h3 align-middle m-1 font-weight-bold py-2 text-center text-dark"
       },
-    marko_attrs22 = {
+    marko_attrs26 = {
         "class": " btn btn-light col h-100 border border-dark rounded py-4 mx-1",
         "data-toggle": "modal",
         "data-target": "#spymasterThinking"
       },
-    marko_attrs23 = {
+    marko_attrs27 = {
         "class": "h3 align-middle font-weight-bold text-dark btn-code text-center"
       },
-    marko_attrs24 = {
+    marko_attrs28 = {
         "class": "fixed-bottom"
       },
-    marko_attrs25 = {
+    marko_attrs29 = {
         "class": "card"
       },
-    marko_attrs26 = {
+    marko_attrs30 = {
         "class": "card-body"
       },
-    marko_attrs27 = {
+    marko_attrs31 = {
         "class": "row"
       },
-    marko_attrs28 = {
+    marko_attrs32 = {
         "class": "col-1"
       },
-    marko_attrs29 = {
+    marko_attrs33 = {
         "class": "col-10"
       },
-    marko_attrs30 = {
+    marko_attrs34 = {
         "class": "col-1"
       },
-    marko_attrs31 = {
+    marko_attrs35 = {
         "class": "progress",
         style: "height: 3px;"
       },
-    marko_attrs32 = {
+    marko_attrs36 = {
         "class": "row"
       },
-    marko_attrs33 = {
+    marko_attrs37 = {
         "class": "col-7"
       },
-    marko_attrs34 = {
+    marko_attrs38 = {
         "class": "col-5"
       },
-    marko_attrs35 = {
+    marko_attrs39 = {
         "class": "text-center"
       },
-    marko_attrs36 = {
+    marko_attrs40 = {
         "class": "text-center"
       },
-    marko_attrs37 = {
+    marko_attrs41 = {
         "class": "input-group justify-content-center"
       },
-    marko_attrs38 = {
+    marko_attrs42 = {
         "class": "input-group-append"
       },
-    marko_node5 = marko_createElement("BUTTON", {
+    marko_node9 = marko_createElement("BUTTON", {
         "class": "btn btn-outline-secondary dropdown-toggle",
         type: "button",
         "data-toggle": "dropdown",
         "aria-haspopup": "true",
         "aria-expanded": "false"
-      }, "83", null, 1, 0, {
+      }, "95", null, 1, 0, {
         i: marko_const_nextId()
       })
       .t("For"),
-    marko_attrs39 = {
+    marko_attrs43 = {
         "class": "dropdown-menu"
       },
-    marko_attrs40 = {
+    marko_attrs44 = {
         "class": "dropdown-item"
       },
-    marko_attrs41 = {
+    marko_attrs45 = {
         "class": "dropdown-item"
       },
-    marko_attrs42 = {
+    marko_attrs46 = {
         "class": "row justify-content-center"
       },
-    marko_attrs43 = {
+    marko_attrs47 = {
         "class": "col-1"
       },
-    marko_node6 = marko_createElement("DIV", {
+    marko_node10 = marko_createElement("DIV", {
         "class": "col-5"
-      }, "93", null, 1, 0, {
+      }, "105", null, 1, 0, {
         i: marko_const_nextId()
       })
       .e("H3", {
           "class": "text-center"
         }, null, null, 1)
         .t("SpyMaster Thinking..."),
-    marko_node7 = marko_createElement("SPAN", {
+    marko_node11 = marko_createElement("SPAN", {
         "class": "sr-only"
-      }, "92", null, 1, 0, {
+      }, "104", null, 1, 0, {
         i: marko_const_nextId()
       })
       .t("Loading..."),
-    marko_attrs44 = {
+    marko_attrs48 = {
         "class": "justify-content-end"
       },
-    marko_attrs45 = {
+    marko_attrs49 = {
         "class": "progress",
         style: "height: 3px;"
       },
-    marko_attrs46 = {
+    marko_attrs50 = {
         "class": "my-5"
       },
-    marko_attrs47 = {
+    marko_attrs51 = {
         "class": "row justify-content-center fixed-bottom"
       },
-    marko_attrs48 = {
+    marko_attrs52 = {
         "class": "mt-4 position-static"
       },
-    marko_attrs49 = {
+    marko_attrs53 = {
         "class": "row my-2 row-card"
       },
-    marko_attrs50 = {
+    marko_attrs54 = {
         "class": "bi bi-person-check mb-1",
         width: "1em",
         height: "1em",
@@ -515,37 +563,37 @@ var marko_template = module.exports = require('/marko$4.16.1/src/vdom'/*"marko/s
         fill: "currentColor",
         xmlns: "http://www.w3.org/2000/svg"
       },
-    marko_attrs51 = {
+    marko_attrs55 = {
         "fill-rule": "evenodd",
         d: "M11 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM1.022 13h9.956a.274.274 0 0 0 .014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 0 0 .022.004zm9.974.056v-.002.002zM6 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm6.854.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"
       },
-    marko_attrs52 = {
+    marko_attrs56 = {
         "class": "row justify-content-center"
       },
-    marko_attrs53 = {
+    marko_attrs57 = {
         "class": "row my-4 justify-content-center"
       },
-    marko_attrs54 = {
+    marko_attrs58 = {
         "class": "card"
       },
-    marko_attrs55 = {
+    marko_attrs59 = {
         "class": "card-body"
       },
-    marko_attrs56 = {
+    marko_attrs60 = {
         "class": "text-center"
       },
-    marko_attrs57 = {
+    marko_attrs61 = {
         "class": "card m-2"
       },
-    marko_attrs58 = {
+    marko_attrs62 = {
         "class": "card m-2"
       },
-    marko_attrs59 = {
+    marko_attrs63 = {
         "class": "card-header text-center"
       },
-    marko_node8 = marko_createElement("DIV", {
+    marko_node12 = marko_createElement("DIV", {
         "class": "card-body d-flex justify-content-center"
-      }, "119", null, 1, 0, {
+      }, "131", null, 1, 0, {
         i: marko_const_nextId()
       })
       .e("IFRAME", {
@@ -556,12 +604,12 @@ var marko_template = module.exports = require('/marko$4.16.1/src/vdom'/*"marko/s
           "class": "giphy-embed",
           allowFullScreen: true
         }, null, null, 0),
-    marko_attrs60 = {
+    marko_attrs64 = {
         "class": "card-header text-center"
       },
-    marko_node9 = marko_createElement("DIV", {
+    marko_node13 = marko_createElement("DIV", {
         "class": "card-body d-flex justify-content-center"
-      }, "123", null, 1, 0, {
+      }, "135", null, 1, 0, {
         i: marko_const_nextId()
       })
       .e("IFRAME", {
@@ -571,7 +619,7 @@ var marko_template = module.exports = require('/marko$4.16.1/src/vdom'/*"marko/s
           "class": "giphy-embed",
           allowFullScreen: true
         }, null, null, 0),
-    marko_attrs61 = {
+    marko_attrs65 = {
         "class": "btn-group my-4"
       };
 
@@ -584,146 +632,190 @@ function render(input, out, __component, component, state) {
 
   out.n(marko_node1, component);
 
-  out.be("NAV", marko_attrs0, "17", component);
+  if (!state.winner && !state.code_name_id) {
+    out.be("DIV", marko_attrs0, "17", component);
 
-  out.be("DIV", marko_attrs1, "18", component);
+    out.be("DIV", marko_attrs1, "18", component);
 
-  out.be("UL", marko_attrs2, "19", component);
+    out.n(marko_node2, component);
 
-  out.be("LI", marko_attrs3, "20", component);
+    out.be("DIV", marko_attrs2, "20", component);
 
-  if (!state.winner && !!state.code_name_id) {
-    out.e("DIV", marko_attrs7, "21", component, 2)
-      .e("BUTTON", {
-          "class": marko_classAttr("btn btn-toggle " + (state.active_toggle === "field_operative" ? "btn-toggle-primary font-weight-bold border-primary" : "btn-light border-left border-top border-bottom border-secondary")),
+    out.e("INPUT", {
+        type: "text",
+        placeholder: "Code",
+        value: "" + state.game_code_given
+      }, "21", component, 0, 0, {
+        oninput: __component.d("input", "updateGameCode", false)
+      });
+
+    out.be("DIV", marko_attrs3, "22", component);
+
+    if (!!state.game_code_given) {
+      out.e("A", {
+          "class": "btn btn-nav border-primary font-weight-bold",
           type: "button",
-          id: "field_operative"
-        }, "22", component, 1, 0, {
-          onclick: __component.d("click", "handleClick", false, [
-              false
-            ])
-        })
-        .t("Operative")
-      .e("BUTTON", {
-          "class": marko_classAttr("btn btn-toggle " + (state.active_toggle === "spymaster" ? "btn-toggle-primary font-weight-bold border-primary" : "btn-light border-right border-top border-bottom border-secondary")),
-          type: "button",
-          id: "spymaster"
-        }, "23", component, 1, 0, {
-          onclick: __component.d("click", "handleClick", false, [
-              true
-            ])
-        })
-        .t("Spy Master");
-  }
-
-  out.ee();
-
-  if ((state.turn && state.team_blue) && !state.winner) {
-    out.be("LI", marko_attrs8, "24", component);
-
-    out.e("H3", marko_attrs9, "25", component, 2)
-      .t(" ")
-      .e("SPAN", {
-          "class": marko_classAttr((("badge badge-light border mr-2 py-2 border-" + (state.turn === "RED" ? "danger" : "primary")) + " ") + (state.turn === state.team_blue.team_name ? state.team_blue.text_color : state.team_red.text_color))
-        }, "26", component, 1, 4)
-        .t(state.turn);
-
-    if (((state.clue && state.guess_text) && !state.spy_master) && state.show_spy_master_info) {
-      out.e("BUTTON", marko_attrs10, "27", component, 1, 0, {
-          onclick: __component.d("click", "changeTurns", false, [
-              null,
-              (state.guesses > 0) && state.has_guessed_all_clues ? false : null
-            ])
-        })
-        .t("End Turn");
+          id: "button-addon2",
+          href: "/code_names/" + state.game_code_given.toUpperCase()
+        }, "23", component, 1)
+        .t("Join");
+    } else {
+      out.n(marko_node4, component);
     }
+
+    out.ee();
+
+    out.ee();
+
+    out.n(marko_node3, component);
+
+    out.ee();
+
+    out.ee();
+  } else {
+    out.be("NAV", marko_attrs4, "28", component);
+
+    out.be("DIV", marko_attrs5, "29", component);
+
+    out.n(marko_node5, component);
+
+    out.be("UL", marko_attrs6, "31", component);
+
+    out.be("LI", marko_attrs7, "32", component);
+
+    if (!state.winner && !!state.code_name_id) {
+      out.e("DIV", marko_attrs11, "33", component, 2)
+        .e("BUTTON", {
+            "class": marko_classAttr("btn btn-toggle " + (state.active_toggle === "field_operative" ? "btn-toggle-primary font-weight-bold border-primary" : "btn-light border-left border-top border-bottom border-secondary")),
+            type: "button",
+            id: "field_operative"
+          }, "34", component, 1, 0, {
+            onclick: __component.d("click", "handleClick", false, [
+                false
+              ])
+          })
+          .t("Operative")
+        .e("BUTTON", {
+            "class": marko_classAttr("btn btn-toggle " + (state.active_toggle === "spymaster" ? "btn-toggle-primary font-weight-bold border-primary" : "btn-light border-right border-top border-bottom border-secondary")),
+            type: "button",
+            id: "spymaster"
+          }, "35", component, 1, 0, {
+            onclick: __component.d("click", "handleClick", false, [
+                true
+              ])
+          })
+          .t("Spy Master");
+    }
+
+    out.ee();
+
+    if ((state.turn && state.team_blue) && !state.winner) {
+      out.be("LI", marko_attrs12, "36", component);
+
+      out.e("H3", marko_attrs13, "37", component, 2)
+        .t(" ")
+        .e("SPAN", {
+            "class": marko_classAttr((("badge badge-light border mr-2 py-2 border-" + (state.turn === "RED" ? "danger" : "primary")) + " ") + (state.turn === state.team_blue.team_name ? state.team_blue.text_color : state.team_red.text_color))
+          }, "38", component, 1, 4)
+          .t(state.turn);
+
+      if (((state.clue && state.guess_text) && !state.spy_master) && state.show_spy_master_info) {
+        out.e("BUTTON", marko_attrs14, "39", component, 1, 0, {
+            onclick: __component.d("click", "changeTurns", false, [
+                null,
+                (state.guesses > 0) && state.has_guessed_all_clues ? false : null
+              ])
+          })
+          .t("End Turn");
+      }
+
+      out.ee();
+    }
+
+    out.be("LI", marko_attrs8, "40", component);
+
+    out.be("DIV", marko_attrs9, "41", component);
+
+    out.e("INPUT", {
+        type: "text",
+        placeholder: "Code",
+        value: "" + state.game_code_given
+      }, "42", component, 0, 0, {
+        oninput: __component.d("input", "updateGameCode", false)
+      });
+
+    out.be("DIV", marko_attrs10, "43", component);
+
+    if (!!state.game_code_given) {
+      out.e("A", {
+          "class": "btn btn-nav border-primary font-weight-bold",
+          type: "button",
+          id: "button-addon2",
+          href: "/code_names/" + state.game_code_given.toUpperCase()
+        }, "44", component, 1)
+        .t("Join");
+    } else {
+      out.n(marko_node7, component);
+    }
+
+    out.ee();
+
+    out.ee();
+
+    out.ee();
+
+    out.n(marko_node6, component);
+
+    out.ee();
+
+    out.ee();
 
     out.ee();
   }
 
-  out.be("LI", marko_attrs4, "28", component);
-
-  out.be("DIV", marko_attrs5, "29", component);
-
-  out.e("INPUT", {
-      type: "text",
-      placeholder: "Code",
-      value: "" + state.game_code_given
-    }, "30", component, 0, 0, {
-      oninput: __component.d("input", "updateGameCode", false)
-    });
-
-  out.be("DIV", marko_attrs6, "31", component);
-
-  if (!!state.game_code_given) {
-    out.e("A", {
-        "class": "btn btn-nav border-primary font-weight-bold",
-        type: "button",
-        id: "button-addon2",
-        href: "/code_names/" + state.game_code_given.toUpperCase()
-      }, "32", component, 1)
-      .t("Join");
-  } else {
-    out.n(marko_node3, component);
-  }
-
-  out.ee();
-
-  out.ee();
-
-  out.ee();
-
-  out.n(marko_node2, component);
-
-  out.ee();
-
-  out.ee();
-
-  out.ee();
-
   if (!state.toast.is_hidden) {
-    out.e("DIV", marko_attrs11, "37", component, 2)
-      .e("DIV", marko_attrs12, "38", component, 2)
-        .e("STRONG", marko_attrs14, "39", component, 1)
+    out.e("DIV", marko_attrs15, "49", component, 2)
+      .e("DIV", marko_attrs16, "50", component, 2)
+        .e("STRONG", marko_attrs18, "51", component, 1)
           .t(state.toast.header)
-        .n(marko_node4, component)
-      .e("DIV", marko_attrs13, "42", component, 1)
+        .n(marko_node8, component)
+      .e("DIV", marko_attrs17, "54", component, 1)
         .t(state.toast.message);
   }
 
   if (!!state.turn && !!state.team_blue) {
-    out.be("DIV", marko_attrs15, "43", component);
+    out.be("DIV", marko_attrs19, "55", component);
 
     if (!state.winner && state.turn) {
       if (state.spy_master) {
-        var for__44 = 0;
+        var for__56 = 0;
 
         marko_forEach(state.rows, function(row) {
-          var keyscope__45 = "[" + ((for__44++) + "]");
+          var keyscope__57 = "[" + ((for__56++) + "]");
 
-          out.be("DIV", marko_attrs16, "46" + keyscope__45, component);
+          out.be("DIV", marko_attrs20, "58" + keyscope__57, component);
 
-          var for__47 = 0;
+          var for__59 = 0;
 
           marko_forEach(row, function(col) {
-            var keyscope__48 = "[" + (((for__47++) + keyscope__45) + "]");
+            var keyscope__60 = "[" + (((for__59++) + keyscope__57) + "]");
 
             out.be("BUTTON", {
                 "class": marko_classAttr(((("btn bg-" + col.color) + " ") + col.text_color) + " col border border-dark rounded py-4 mx-1")
-              }, "49" + keyscope__48, component, null, 4);
+              }, "61" + keyscope__60, component, null, 4);
 
             out.be("SPAN", {
                 "class": marko_classAttr(("h3 align-middle font-weight-bold " + col.text_color) + " text-center")
-              }, "50" + keyscope__48, component, null, 4);
+              }, "62" + keyscope__60, component, null, 4);
 
             out.t(col.word);
 
             if (!col.is_hidden) {
               out.e("SPAN", {
                   "class": marko_classAttr("badge badge-" + col.color)
-                }, "51" + keyscope__48, component, 1, 4)
-                .e("svg", marko_attrs17, "52" + keyscope__48, component, 1, 1)
-                  .e("path", marko_attrs18, "53" + keyscope__48, component, 0, 1);
+                }, "63" + keyscope__60, component, 1, 4)
+                .e("svg", marko_attrs21, "64" + keyscope__60, component, 1, 1)
+                  .e("path", marko_attrs22, "65" + keyscope__60, component, 0, 1);
             }
 
             out.ee();
@@ -734,32 +826,32 @@ function render(input, out, __component, component, state) {
           out.ee();
         });
       } else {
-        var for__54 = 0;
+        var for__66 = 0;
 
         marko_forEach(state.rows, function(row, rowIndex) {
-          var keyscope__55 = "[" + ((for__54++) + "]");
+          var keyscope__67 = "[" + ((for__66++) + "]");
 
-          out.be("DIV", marko_attrs19, "56" + keyscope__55, component);
+          out.be("DIV", marko_attrs23, "68" + keyscope__67, component);
 
-          var for__57 = 0;
+          var for__69 = 0;
 
           marko_forEach(row, function(col, colIndex) {
-            var keyscope__58 = "[" + (((for__57++) + keyscope__55) + "]");
+            var keyscope__70 = "[" + (((for__69++) + keyscope__67) + "]");
 
             if (col.is_hidden) {
               if (!!state.clue && !Number.isNaN(state.max_guesses)) {
-                out.e("BUTTON", marko_attrs20, "59" + keyscope__58, component, 1, 0, {
+                out.e("BUTTON", marko_attrs24, "71" + keyscope__70, component, 1, 0, {
                     onclick: __component.d("click", "handleGuessCard", false, [
                         col.word,
                         rowIndex,
                         colIndex
                       ])
                   })
-                  .e("SPAN", marko_attrs21, "60" + keyscope__58, component, 1)
+                  .e("SPAN", marko_attrs25, "72" + keyscope__70, component, 1)
                     .t(col.word);
               } else {
-                out.e("BUTTON", marko_attrs22, "61" + keyscope__58, component, 1)
-                  .e("SPAN", marko_attrs23, "62" + keyscope__58, component, 1)
+                out.e("BUTTON", marko_attrs26, "73" + keyscope__70, component, 1)
+                  .e("SPAN", marko_attrs27, "74" + keyscope__70, component, 1)
                     .t(col.word);
               }
             } else {
@@ -767,10 +859,10 @@ function render(input, out, __component, component, state) {
                   "class": marko_classAttr(("btn bg-" + col.color) + " col h-100 border border-dark rounded py-4 mx-1"),
                   "data-toggle": "modal",
                   "data-target": "#alreadyGuessed"
-                }, "63" + keyscope__58, component, 1)
+                }, "75" + keyscope__70, component, 1)
                 .e("SPAN", {
                     "class": marko_classAttr(("h3 align-middle font-weight-bold " + col.text_color) + " text-center")
-                  }, "64" + keyscope__58, component, 1, 4)
+                  }, "76" + keyscope__70, component, 1, 4)
                   .t(col.word);
             }
           });
@@ -783,21 +875,21 @@ function render(input, out, __component, component, state) {
     out.ee();
 
     if (!state.winner && state.turn) {
-      out.be("DIV", marko_attrs24, "65", component);
+      out.be("DIV", marko_attrs28, "77", component);
 
-      out.be("DIV", marko_attrs25, "66", component);
+      out.be("DIV", marko_attrs29, "78", component);
 
-      out.be("DIV", marko_attrs26, "67", component);
+      out.be("DIV", marko_attrs30, "79", component);
 
-      out.be("DIV", marko_attrs27, "68", component);
+      out.be("DIV", marko_attrs31, "80", component);
 
-      out.e("DIV", marko_attrs28, "69", component, 1)
-        .e("H3", null, "70", component, 2)
+      out.e("DIV", marko_attrs32, "81", component, 1)
+        .e("H3", null, "82", component, 2)
           .e("SPAN", {
               "class": marko_classAttr((("badge mb-1 badge-light border mr-2 border-" + (state.team_blue.team_name === "RED" ? "danger" : "primary")) + " ") + state.team_blue.text_color)
-            }, "71", component, 1, 4)
+            }, "83", component, 1, 4)
             .t(state.team_blue.words.length)
-          .e("DIV", marko_attrs31, "72", component, 1)
+          .e("DIV", marko_attrs35, "84", component, 1)
             .e("DIV", {
                 "class": marko_classAttr("progress-bar bg-" + (state.team_blue.team_name === "RED" ? "danger" : "primary")),
                 role: "progressbar",
@@ -805,54 +897,54 @@ function render(input, out, __component, component, state) {
                 "aria-valuenow": "" + (state.team_blue.total_word_count - state.team_blue.words.length),
                 "aria-valuemin": "0",
                 "aria-valuemax": "" + state.team_blue.total_word_count
-              }, "73", component, 0);
+              }, "85", component, 0);
 
-      out.be("DIV", marko_attrs29, "74", component);
+      out.be("DIV", marko_attrs33, "86", component);
 
       if (state.show_spy_master_info) {
-        out.e("DIV", marko_attrs32, "75", component, 2)
-          .e("DIV", marko_attrs33, "76", component, 1)
-            .e("H3", marko_attrs35, "77", component, 5)
+        out.e("DIV", marko_attrs36, "87", component, 2)
+          .e("DIV", marko_attrs37, "88", component, 1)
+            .e("H3", marko_attrs39, "89", component, 5)
               .t("\"")
               .t(state.clue.toUpperCase())
               .t("\" for ")
               .t(state.guess_text)
               .t(" words")
-          .e("DIV", marko_attrs34, "78", component, 1)
-            .e("H3", marko_attrs36, "79", component, 2)
+          .e("DIV", marko_attrs38, "90", component, 1)
+            .e("H3", marko_attrs40, "91", component, 2)
               .t("Total guesses left: ")
               .t(state.guesses);
       } else {
         if (!state.winner) {
           if ((state.turn && state.spy_master) && !state.show_spy_master_info) {
-            out.be("DIV", marko_attrs37, "80", component);
+            out.be("DIV", marko_attrs41, "92", component);
 
             out.e("INPUT", {
                 type: "text",
                 placeholder: "Clue",
                 value: "" + (state.clue_state || "")
-              }, "81", component, 0, 0, {
+              }, "93", component, 0, 0, {
                 oninput: __component.d("input", "changeClue", false)
               });
 
-            out.be("DIV", marko_attrs38, "82", component);
+            out.be("DIV", marko_attrs42, "94", component);
 
-            out.n(marko_node5, component);
+            out.n(marko_node9, component);
 
-            out.be("DIV", marko_attrs39, "84", component);
+            out.be("DIV", marko_attrs43, "96", component);
 
-            var for__85 = 0;
+            var for__97 = 0;
 
             marko_forEach(state.turn === state.team_blue.team_name ? state.team_blue.words : state.team_red.words, function(word, wordIndex) {
-              var keyscope__86 = "[" + ((for__85++) + "]");
+              var keyscope__98 = "[" + ((for__97++) + "]");
 
-              out.e("DIV", marko_attrs41, "87" + keyscope__86, component, 1, 0, {
+              out.e("DIV", marko_attrs45, "99" + keyscope__98, component, 1, 0, {
                   onclick: __component.d("click", "giveGuess", false)
                 })
                 .t(wordIndex);
             });
 
-            out.e("DIV", marko_attrs40, "88", component, 1, 0, {
+            out.e("DIV", marko_attrs44, "100", component, 1, 0, {
                 onclick: __component.d("click", "giveGuess", false)
               })
               .t(state.turn === state.team_blue.team_name ? state.team_blue.words.length : state.team_red.words.length);
@@ -863,27 +955,27 @@ function render(input, out, __component, component, state) {
 
             out.ee();
           } else {
-            out.e("DIV", marko_attrs42, "89", component, 2)
-              .e("DIV", marko_attrs43, "90", component, 1)
+            out.e("DIV", marko_attrs46, "101", component, 2)
+              .e("DIV", marko_attrs47, "102", component, 1)
                 .e("DIV", {
                     "class": marko_classAttr("spinner-border text-" + (state.turn === "RED" ? "danger" : "primary")),
                     role: "status"
-                  }, "91", component, 1)
-                  .n(marko_node7, component)
-              .n(marko_node6, component);
+                  }, "103", component, 1)
+                  .n(marko_node11, component)
+              .n(marko_node10, component);
           }
         }
       }
 
       out.ee();
 
-      out.e("DIV", marko_attrs30, "95", component, 1)
-        .e("H3", marko_attrs44, "96", component, 2)
+      out.e("DIV", marko_attrs34, "107", component, 1)
+        .e("H3", marko_attrs48, "108", component, 2)
           .e("SPAN", {
               "class": marko_classAttr((("badge mb-1 badge-light border mr-2 border-" + (state.team_red.team_name === "RED" ? "danger" : "primary")) + " ") + state.team_red.text_color)
-            }, "97", component, 1, 4)
+            }, "109", component, 1, 4)
             .t(state.team_red.words.length)
-          .e("DIV", marko_attrs45, "98", component, 1)
+          .e("DIV", marko_attrs49, "110", component, 1)
             .e("DIV", {
                 "class": marko_classAttr("progress-bar bg-" + (state.team_red.team_name === "RED" ? "danger" : "primary")),
                 role: "progressbar",
@@ -891,7 +983,7 @@ function render(input, out, __component, component, state) {
                 "aria-valuenow": "" + (state.team_red.total_word_count - state.team_red.words.length),
                 "aria-valuemin": "0",
                 "aria-valuemax": "" + state.team_red.total_word_count
-              }, "99", component, 0);
+              }, "111", component, 0);
 
       out.ee();
 
@@ -901,39 +993,39 @@ function render(input, out, __component, component, state) {
 
       out.ee();
     } else {
-      out.be("DIV", marko_attrs46, "100", component);
+      out.be("DIV", marko_attrs50, "112", component);
 
       if (state.game_over_active_toggle === "spymaster") {
-        out.be("DIV", marko_attrs48, "101", component);
+        out.be("DIV", marko_attrs52, "113", component);
 
-        var for__102 = 0;
+        var for__114 = 0;
 
         marko_forEach(state.rows, function(row) {
-          var keyscope__103 = "[" + ((for__102++) + "]");
+          var keyscope__115 = "[" + ((for__114++) + "]");
 
-          out.be("DIV", marko_attrs49, "104" + keyscope__103, component);
+          out.be("DIV", marko_attrs53, "116" + keyscope__115, component);
 
-          var for__105 = 0;
+          var for__117 = 0;
 
           marko_forEach(row, function(col) {
-            var keyscope__106 = "[" + (((for__105++) + keyscope__103) + "]");
+            var keyscope__118 = "[" + (((for__117++) + keyscope__115) + "]");
 
             out.be("DIV", {
                 "class": marko_classAttr(("bg-" + col.color) + " col h-100 border border-dark rounded py-4 m-1")
-              }, "107" + keyscope__106, component, null, 4);
+              }, "119" + keyscope__118, component, null, 4);
 
             out.be("DIV", {
                 "class": marko_classAttr("h3 m-1 font-weight-bold py-2 text-center " + col.text_color)
-              }, "108" + keyscope__106, component, null, 4);
+              }, "120" + keyscope__118, component, null, 4);
 
             out.t(col.word);
 
             if (!col.is_hidden) {
               out.e("SPAN", {
                   "class": marko_classAttr("badge badge-" + col.color)
-                }, "109" + keyscope__106, component, 1, 4)
-                .e("svg", marko_attrs50, "110" + keyscope__106, component, 1, 1)
-                  .e("path", marko_attrs51, "111" + keyscope__106, component, 0, 1);
+                }, "121" + keyscope__118, component, 1, 4)
+                .e("svg", marko_attrs54, "122" + keyscope__118, component, 1, 1)
+                  .e("path", marko_attrs55, "123" + keyscope__118, component, 0, 1);
             }
 
             out.ee();
@@ -946,35 +1038,35 @@ function render(input, out, __component, component, state) {
 
         out.ee();
       } else {
-        out.e("DIV", marko_attrs52, "112", component, 1)
-          .e("DIV", marko_attrs54, "113", component, 1)
-            .e("DIV", marko_attrs55, "114", component, 1)
-              .e("H4", marko_attrs56, "115", component, 3)
+        out.e("DIV", marko_attrs56, "124", component, 1)
+          .e("DIV", marko_attrs58, "125", component, 1)
+            .e("DIV", marko_attrs59, "126", component, 1)
+              .e("H4", marko_attrs60, "127", component, 3)
                 .t("WINNER IS TEAM ")
                 .t(state.winner)
                 .t("!");
 
-        out.e("DIV", marko_attrs53, "116", component, 2)
-          .e("DIV", marko_attrs57, "117", component, 2)
-            .e("DIV", marko_attrs59, "118", component, 3)
+        out.e("DIV", marko_attrs57, "128", component, 2)
+          .e("DIV", marko_attrs61, "129", component, 2)
+            .e("DIV", marko_attrs63, "130", component, 3)
               .t("BETTER LUCK NEXT TIME TEAM ")
               .t(state.team_blue.team_name !== state.winner ? state.team_blue.team_name : state.team_red.team_name)
               .t("...")
-            .n(marko_node8, component)
-          .e("DIV", marko_attrs58, "121", component, 2)
-            .e("DIV", marko_attrs60, "122", component, 3)
+            .n(marko_node12, component)
+          .e("DIV", marko_attrs62, "133", component, 2)
+            .e("DIV", marko_attrs64, "134", component, 3)
               .t("CONGRATS TEAM ")
               .t(state.winner)
               .t("!")
-            .n(marko_node9, component);
+            .n(marko_node13, component);
       }
 
-      out.e("DIV", marko_attrs47, "125", component, 1)
-        .e("DIV", marko_attrs61, "126", component, 2)
+      out.e("DIV", marko_attrs51, "137", component, 1)
+        .e("DIV", marko_attrs65, "138", component, 2)
           .e("BUTTON", {
               "class": marko_classAttr("btn " + (state.game_over_active_toggle === "see_who_won" ? "btn-primary" : "btn-secondary")),
               type: "button"
-            }, "127", component, 1, 0, {
+            }, "139", component, 1, 0, {
               onclick: __component.d("click", "handleGameOverToggleClick", false, [
                   false
                 ])
@@ -983,7 +1075,7 @@ function render(input, out, __component, component, state) {
           .e("BUTTON", {
               "class": marko_classAttr("btn " + (state.game_over_active_toggle === "spymaster" ? "btn-primary" : "btn-secondary")),
               type: "button"
-            }, "128", component, 1, 0, {
+            }, "140", component, 1, 0, {
               onclick: __component.d("click", "handleGameOverToggleClick", false, [
                   true
                 ])

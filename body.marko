@@ -6,11 +6,11 @@ class {
     onInput(input) {
       input = input.body_data;
       this.state = {
-        active_page: input.active_page || '',
+        active_page: input.active_page || 'code_names',
         pages: {
-          home: {page: Home, name: "Home", url: '/'},
-          code_names: {page: CodeNames, name: 'Code Names', url: '/code_names'},
-          contact: {page: Contact, name: 'Contact', url: '/contact'},
+          'code_names': {page: CodeNames, name: 'Code Names', url: '/code_names'},
+          'home': {primaryPage: true, page: Home, name: 'Home', url: '/'},
+          'contact': {page: Contact, name: 'Contact', url: '/contact'},
         },
         active_classes: ['active'],
         nav_title: 'WyJackGames',
@@ -38,16 +38,18 @@ class {
     <div class="collapse navbar-collapse" id="my-nav">
       <ul class="navbar-nav mr-auto">
         <for(index, item in Object.values(state.pages))>
-          <li class=`nav-item ${state.active_index === index ? state.active_classes.join("") : ''}`>
-            <!-- <a class="nav-link" href="#" on-click('navigate', String(index))>${(state.pages[index]).name}</a> -->
-            <a class="nav-link" href=`${item.url}`>${item.name}</a>
-          </li>
+          <if(!item.primaryPage)>
+            <li class=`nav-item ${state.active_index === index ? state.active_classes.join("") : ''}`>
+              <!-- <a class="nav-link" href="#" on-click('navigate', String(index))>${(state.pages[index]).name}</a> -->
+              <a class="nav-link" href=`${item.url}`>${item.name}</a>
+            </li>
+          </if>
         </for>
       </ul>
     </div>
   </nav>
 </if>
-<div class="py-4 px-4">
+<div>
   <div class="notification-container">
     <for(alarm in state.alarms)>
       <div class=`alert alert-${alarm.type} my-2` role="alert">

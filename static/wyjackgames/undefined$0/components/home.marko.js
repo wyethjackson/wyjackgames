@@ -12,7 +12,7 @@ var marko_template = module.exports = require('/marko$4.16.1/src/vdom'/*"marko/s
     marko_helpers = require('/marko$4.16.1/src/runtime/vdom/helpers'/*"marko/src/runtime/vdom/helpers"*/),
     marko_createElement = marko_helpers.e,
     marko_const = marko_helpers.const,
-    marko_const_nextId = marko_const("9bd5ab"),
+    marko_const_nextId = marko_const("1c54e9"),
     marko_node0 = marko_createElement("DIV", {
         "class": "card border border-secondary"
       }, "0", null, 1, 0, {
@@ -27,20 +27,12 @@ var marko_template = module.exports = require('/marko$4.16.1/src/vdom'/*"marko/s
           .t("Welcome!")
         .e("DIV", {
             "class": "row"
-          }, null, null, 2)
-          .e("DIV", {
-              "class": "col-5 px-3"
-            }, null, null, 1)
-            .e("IMG", {
-                src: "assets/img/wyeth_jackson.jpeg",
-                width: "250",
-                height: "333"
-              }, null, null, 0)
+          }, null, null, 1)
           .e("DIV", {
               "class": "col-7 py-2 px-3"
             }, null, null, 1)
             .e("P", null, null, null, 1)
-              .t("My name is Wyeth Jackson and I am a software developer currently based in Boston, MA. To connect with me, please click on the contact tab.");
+              .t("Enjoy these games I have created!");
 
 function render(input, out, __component, component, state) {
   var data = input;

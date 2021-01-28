@@ -7,17 +7,18 @@ var marko_template = module.exports = require('/marko$4.16.1/src/vdom'/*"marko/s
           input = input.body_data;
 
           this.state = {
-              active_page: input.active_page || "",
+              active_page: input.active_page || "code_names",
               pages: {
-                  home: {
-                      page: Home,
-                      name: "Home",
-                      url: "/"
-                    },
                   code_names: {
                       page: CodeNames,
                       name: "Code Names",
                       url: "/code_names"
+                    },
+                  home: {
+                      primaryPage: true,
+                      page: Home,
+                      name: "Home",
+                      url: "/"
                     },
                   contact: {
                       page: Contact,
@@ -60,21 +61,18 @@ var marko_template = module.exports = require('/marko$4.16.1/src/vdom'/*"marko/s
     marko_forEach = marko_helpers.f,
     marko_dynamicTag = marko_helpers.d,
     marko_attrs0 = {
-        "class": "py-4 px-4"
-      },
-    marko_attrs1 = {
         "class": "notification-container"
       },
-    marko_attrs2 = {
+    marko_attrs1 = {
         "class": "navbar navbar-expand-lg navbar-light sticky-top bg-light border border-secondary border-top-0 border-left-0 border-right-0"
       },
-    marko_attrs3 = {
+    marko_attrs2 = {
         "class": "navbar-brand",
         href: "/"
       },
     marko_createElement = marko_helpers.e,
     marko_const = marko_helpers.const,
-    marko_const_nextId = marko_const("f9238e"),
+    marko_const_nextId = marko_const("c8798c"),
     marko_node0 = marko_createElement("BUTTON", {
         "class": "navbar-toggler",
         type: "button",
@@ -89,11 +87,11 @@ var marko_template = module.exports = require('/marko$4.16.1/src/vdom'/*"marko/s
       .e("SPAN", {
           "class": "navbar-toggler-icon"
         }, null, null, 0),
-    marko_attrs4 = {
+    marko_attrs3 = {
         "class": "collapse navbar-collapse",
         id: "my-nav"
       },
-    marko_attrs5 = {
+    marko_attrs4 = {
         "class": "navbar-nav mr-auto"
       };
 
@@ -101,30 +99,32 @@ function render(input, out, __component, component, state) {
   var data = input;
 
   if (!state.hide_nav) {
-    out.be("NAV", marko_attrs2, "0", component);
+    out.be("NAV", marko_attrs1, "0", component);
 
-    out.e("A", marko_attrs3, "1", component, 1)
+    out.e("A", marko_attrs2, "1", component, 1)
       .t(state.nav_title);
 
     out.n(marko_node0, component);
 
-    out.be("DIV", marko_attrs4, "4", component);
+    out.be("DIV", marko_attrs3, "4", component);
 
-    out.be("UL", marko_attrs5, "5", component);
+    out.be("UL", marko_attrs4, "5", component);
 
     var for__6 = 0;
 
     marko_forEachProp(Object.values(state.pages), function(index, item) {
       var keyscope__7 = "[" + ((for__6++) + "]");
 
-      out.e("LI", {
-          "class": marko_classAttr("nav-item " + (state.active_index === index ? state.active_classes.join("") : ""))
-        }, "8" + keyscope__7, component, 1, 4)
-        .e("A", {
-            "class": "nav-link",
-            href: "" + item.url
-          }, "9" + keyscope__7, component, 1)
-          .t(item.name);
+      if (!item.primaryPage) {
+        out.e("LI", {
+            "class": marko_classAttr("nav-item " + (state.active_index === index ? state.active_classes.join("") : ""))
+          }, "8" + keyscope__7, component, 1, 4)
+          .e("A", {
+              "class": "nav-link",
+              href: "" + item.url
+            }, "9" + keyscope__7, component, 1)
+            .t(item.name);
+      }
     });
 
     out.ee();
@@ -134,9 +134,9 @@ function render(input, out, __component, component, state) {
     out.ee();
   }
 
-  out.be("DIV", marko_attrs0, "10", component);
+  out.be("DIV", null, "10", component);
 
-  out.be("DIV", marko_attrs1, "11", component);
+  out.be("DIV", marko_attrs0, "11", component);
 
   var for__12 = 0;
 

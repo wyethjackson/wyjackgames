@@ -228,8 +228,35 @@ class {
       </div>
     </div>
   </div>
+  <if(!state.winner && !state.code_name_id)>
+  <div class="card d-flex justify-content-center m-2">
+  <div class="card-body">
+    <h5 class="card-title mx-1">Play Code Names</h5>
+      <div class="input-group mx-1 my-2">
+        <input type="text" placeholder="Code" value=`${state.game_code_given}`
+          on-input('updateGameCode')
+        />
+        <div class="input-group-append">
+          <if(!!state.game_code_given)>
+            <a class="btn btn-nav border-primary font-weight-bold" type="button" id="button-addon2" href=`/code_names/${state.game_code_given.toUpperCase()}`>Join</a>
+          </if>
+          <else>
+            <a class="btn btn-nav border-primary font-weight-bold" type="button" id="button-addon2" href='#'>Join</a>
+          </else>
+        </div>
+      </div>
+      <div class="input-group mx-1 my-2">
+      <form class="float-right" action="/code_names/new" method="POST">
+        <button class="btn btn-nav border-primary font-weight-bold">New Game</button>
+      </form>
+    </div>
+  </div>
+</div>
+</if>
+<else>
   <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-light border border-secondary border-top-0 border-left-0 border-right-0">
     <div class="collapse navbar-collapse" id="my-nav">
+      <a class="navbar-brand" href="/">WyJackGames</a>
       <ul class="navbar-nav mr-auto">
           <li class=`nav-item`>
       <if(!state.winner && !!state.code_name_id)>
@@ -272,31 +299,10 @@ class {
                 <button class="btn btn-nav border-primary font-weight-bold">New Game</button>
               </form>
             </li>
-    <!-- <div class="col-5">
-      <div class="row">
-        <div class="col-sm-8 float-left pr-0">
-          <div class="input-group">
-            <input type="text" placeholder="Code" value=`${state.game_code_given}`
-              on-input('updateGameCode')
-            />
-            <div class="input-group-append">
-              <if(!!state.game_code_given)>
-                <a class="btn btn-nav border-primary font-weight-bold" type="button" id="button-addon2" href=`/code_names/${state.game_code_given.toUpperCase()}`>Join</a>
-              </if>
-              <else>
-                <a class="btn btn-nav border-primary font-weight-bold" type="button" id="button-addon2" href='#'>Join</a>
-              </else>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-4 justify-content-end pr-1">
-
-        </div>
-      </div>
-    </div> -->
   </ul>
 </div>
 </nav>
+</else>
   <if(!state.toast.is_hidden)>
     <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header">
@@ -311,7 +317,7 @@ class {
     </div>
   </if>
   <if(!!state.turn && !!state.team_blue)>
-    <div class="mt-4 position-static">
+    <div class="mt-4 position-static px-4">
       <if(!state.winner && state.turn)>
         <if(state.spy_master)>
           <for(row in state.rows)>

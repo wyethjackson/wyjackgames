@@ -7,17 +7,18 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
           input = input.body_data;
 
           this.state = {
-              active_page: input.active_page || "",
+              active_page: input.active_page || "code_names",
               pages: {
-                  home: {
-                      page: Home,
-                      name: "Home",
-                      url: "/"
-                    },
                   code_names: {
                       page: CodeNames,
                       name: "Code Names",
                       url: "/code_names"
+                    },
+                  home: {
+                      primaryPage: true,
+                      page: Home,
+                      name: "Home",
+                      url: "/"
                     },
                   contact: {
                       page: Contact,
@@ -73,19 +74,21 @@ function render(input, out, __component, component, state) {
     marko_forEachProp(Object.values(state.pages), function(index, item) {
       var keyscope__7 = "[" + ((for__6++) + "]");
 
-      out.w("<li" +
-        marko_classAttr("nav-item " + (state.active_index === index ? state.active_classes.join("") : "")) +
-        "><a class=\"nav-link\"" +
-        marko_attr("href", "" + item.url) +
-        ">" +
-        marko_escapeXml(item.name) +
-        "</a></li>");
+      if (!item.primaryPage) {
+        out.w("<li" +
+          marko_classAttr("nav-item " + (state.active_index === index ? state.active_classes.join("") : "")) +
+          "><a class=\"nav-link\"" +
+          marko_attr("href", "" + item.url) +
+          ">" +
+          marko_escapeXml(item.name) +
+          "</a></li>");
+      }
     });
 
     out.w("</ul></div></nav>");
   }
 
-  out.w("<div class=\"py-4 px-4\"><div class=\"notification-container\">");
+  out.w("<div><div class=\"notification-container\">");
 
   var for__12 = 0;
 

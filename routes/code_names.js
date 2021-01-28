@@ -72,7 +72,7 @@ async function getGameDetails(code_name_id) {
 }
 
 router.get('/', async function (req, res) {
-  res.marko(index, {path: '../', page_id: 'PROJECTS', active_page: 'code_names', hide_nav: true, host_url: process.env.HOST_URL});
+  res.marko(index, {path: '../', page_id: 'PROJECTS', active_page: 'code_names', hide_nav: false, host_url: process.env.HOST_URL});
 });
 
 router.get('/:code_name_id', async function (req, res) {
